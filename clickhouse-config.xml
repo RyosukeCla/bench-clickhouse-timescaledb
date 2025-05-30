@@ -15,7 +15,7 @@
             <async_insert_max_data_size>10485760</async_insert_max_data_size>
             <async_insert_busy_timeout_ms>200</async_insert_busy_timeout_ms>
             <async_insert_stale_timeout_ms>0</async_insert_stale_timeout_ms>
-            <wait_for_async_insert>0</wait_for_async_insert>
+            <wait_for_async_insert>1</wait_for_async_insert>
         </default>
     </profiles>
 </clickhouse>
