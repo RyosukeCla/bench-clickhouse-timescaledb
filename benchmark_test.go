@@ -219,7 +219,7 @@ func BenchmarkClickHouse_AsyncInsert(b *testing.B) {
 			// Use context with settings for async insert
 			ctx := clickhouse.Context(context.Background(), clickhouse.WithSettings(clickhouse.Settings{
 				"async_insert":          1,
-				"wait_for_async_insert": 0,
+				"wait_for_async_insert": 1,
 			}))
 			err := clickhouseConn.Exec(ctx,
 				"INSERT INTO test_data (id, timestamp, user_id, value, status) VALUES (?, ?, ?, ?, ?)",
@@ -276,7 +276,7 @@ func BenchmarkClickHouse_AsyncBatchInsert(b *testing.B) {
 		// Use context with settings for async insert
 		ctx := clickhouse.Context(context.Background(), clickhouse.WithSettings(clickhouse.Settings{
 			"async_insert":          1,
-			"wait_for_async_insert": 0,
+			"wait_for_async_insert": 1,
 		}))
 		batch, err := clickhouseConn.PrepareBatch(ctx,
 			"INSERT INTO test_data (id, timestamp, user_id, value, status)")
